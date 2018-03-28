@@ -106,13 +106,16 @@ public class ServiceDemoActivity extends AppCompatActivity {
                 Intent mediaPlayerIntent = new Intent(this, MediaPlayerService.class);
                 mediaPlayerIntent.putExtra(MediaPlayerService.EXTRA_SONG_ID, R.raw.mungkin_nanti);
 
-                //startService(mediaPlayerIntent);
+                //startService(mediaPlayerIntent); to play without ui(binding)
 
+                //comment this if dont want UI (binding to ui)
                 if (isBound) {
                     playerService.playSong();
                 } else {
                     bindService(mediaPlayerIntent, mpServiceConnection, Context.BIND_AUTO_CREATE);
                 }
+                //till here
+
                 break;
             case R.id.button_stop:
                 //stopService(new Intent(this, MediaPlayerService.class));
